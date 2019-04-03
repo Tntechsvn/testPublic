@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    Admin - LTE
+    Danh sách giáo viên
 @stop
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -14,7 +14,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Bảng User</li>
+        <li class="active">Bảng điểm</li>
       </ol>
     </section>
 
@@ -24,7 +24,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh sách user</h3>
+              <h3 class="box-title">Bảng điểm học sinh</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -32,34 +32,34 @@
                 <thead>
 	                <tr>
 	                  <th>ID</th>
-	                  <th>Tên người dùng</th>
-	                  <th>Email</th>
-	                  <th>Cấp quyền</th>
-	                  <th>Ngày tạo</th>
-	                  <th>Sửa user</th>
-	                  <th>Xóa user</th>
+	                  <th>Tên học sinh</th>
+	                  <th>Tên lớp</th>
+	                  <th>Tên môn học</th>
+	                  <th>Điểm TB môn học</th>
+	                  <th>Sửa điểm</th>
+	                  <th>Xóa</th>
 	                </tr>
                 </thead>
                 <tbody>
 	                <tr>
-	                  <td>Trident</td>
+	                  <td>1</td>
 	                  <td>Internet Explorer 4.0</td>
+	                  <td>6A3</td>
 	                  <td>Win 95+</td>
 	                  <td> 4</td>
 	                  <td>X</td>
 	                  <td>Vinh</td>
-	                  <td>Đẹp trai</td>
 	                </tr>
                 </tbody>
                 <tfoot>
 	                <tr>
 	                  <th>ID</th>
-	                  <th>Tên người dùng</th>
-	                  <th>Email</th>
-	                  <th>Cấp quyền</th>
-	                  <th>Ngày tạo</th>
-	                  <th>Sửa user</th>
-	                  <th>Xóa user</th>
+	                  <th>Tên học sinh</th>
+	                  <th>Tên lớp</th>
+	                  <th>Tên môn học</th>
+	                  <th>Điểm TB môn học</th>
+	                  <th>Sửa điểm</th>
+	                  <th>Xóa</th>
 	                </tr>
                 </tfoot>
               </table>
