@@ -16,17 +16,39 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'admin'], function(){
-	Route::get('/','AdminController@admin');
+	Route::get('/','AdminController@admin')->name('admin');
 
-	Route::get('hocsinh','HocSinhController@list');
+	Route::get('hocsinh', [
+		'as' => 'admin.hocsinh',
+		'uses' => 'HocSinhController@list'
+	]);
 
-	Route::get('lop','LopController@list');
+	Route::get('lophoc', [
+		'as' => 'admin.lophoc',
+		'uses' => 'LopController@list'
+	]);
 
-	Route::get('giaovien','GiaoVienController@list');
+	Route::get('giaovien', [
+		'as' => 'admin.giaovien',
+		'uses' => 'GiaoVienController@list'
+	]);
 
-	Route::get('monhoc','MonHocController@list');
+	Route::get('monhoc', [
+		'as' => 'admin.monhoc',
+		'uses' => 'MonHocController@list'
+	]);
 
-	Route::get('bangdiem','BangDiemController@list');
+	Route::get('bangdiem', [
+		'as' => 'admin.bangdiem',
+		'uses' => 'BangDiemController@list'
+	]);
 
-	Route::get('diemchitiet','BangDiemController@diemchitiet');
+	Route::get('diemchitiet', [
+		'as' => 'admin.diemchitiet',
+		'uses' => 'BangDiemController@diemchitiet'
+	]);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
