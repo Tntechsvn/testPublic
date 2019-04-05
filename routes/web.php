@@ -13,10 +13,27 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 
 Route::group(['prefix'=>'admin'], function(){
 	Route::get('/','AdminController@admin')->name('admin');
+
+	Route::group(['prefix'=>'user'], function(){
+		Route::get('/add', [
+			'as' => 'user.add',
+			'uses' => 'AdminController@add'
+		]);
+
+		Route::post('/add', 'AdminController@postAdd');
+
+	    Route::get('/edit/{id}', [
+			'as' => 'user.edit',
+			'uses' => 'AdminController@getEdit'
+		]);
+		Route::post('/edit/{id}', 'AdminController@postEdit');
+
+		Route::get('/delete/{id}', 'AdminController@getDelete');
+	});
 
 	Route::get('hocsinh', [
 		'as' => 'admin.hocsinh',

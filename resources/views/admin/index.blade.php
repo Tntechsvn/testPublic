@@ -41,15 +41,17 @@
 	                </tr>
                 </thead>
                 <tbody>
-	                <tr>
-	                  <td>Trident</td>
-	                  <td>Internet Explorer 4.0</td>
-	                  <td>Win 95+</td>
-	                  <td> 4</td>
-	                  <td>X</td>
-	                  <td>Vinh</td>
-	                  <td>Đẹp trai</td>
-	                </tr>
+                  @foreach($user as $u)
+                    <tr>
+                      <td>{{$u->id}}</td>
+                      <td>{{$u->name}}</td>
+                      <td>{{$u->email}}</td>
+                      <td>{{$u->role->first()->display_name}}</td>
+                      <td>{{$u->create_at}}</td>
+                      <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="admin/user/edit/{{$u->id}}"> Edit</a></td>
+                      <td class="center"><i class="fa fa-trash-o fa-fw"></i>Delete<!-- <a href="admin/user/delete/{{$u->id}}"> Delete</a> --></td>
+                    </tr>
+                  @endforeach	                
                 </tbody>
                 <tfoot>
 	                <tr>
