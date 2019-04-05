@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 class LoginController extends Controller
 {
     /*
@@ -25,6 +24,34 @@ class LoginController extends Controller
      *
      * @var string
      */
+    // if(Auth::user()->hasRole('AdminTractor')){
+    //     protected $redirectTo = '/admin';
+    // }else if(Auth::user()->hasRole('mod')){
+    //     protected $redirectTo = '/admin/giaovien';
+    // }else if(Auth::user()->hasRole('hocsinh')){
+    //     protected $redirectTo = '/admin/hocsinh';
+    // }else{
+    //     protected $redirectTo = '/home';
+    // }
+    // protected function redirectTo()
+    // {
+    //     $user = Auth::user();
+        //dd($user->hasRole('AdminTractor'));
+
+        // if ($user->hasRole('AdminTractor')) {
+        //     return route('admin');
+        // }
+
+        // if ($user->hasRole('mod')) {
+        //     return route('giaovien');
+        // }
+        // if($user->hasRole('hocsinh')){
+        //     return route('hocsinh');
+        // }
+
+        // return route('home');
+    // }
+
     protected $redirectTo = '/home';
 
     /**

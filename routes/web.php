@@ -18,3 +18,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>'checkuser','prefix'=>'admin'], function(){
+	Route::get('/','AdminController@admin');
+
+	Route::get('hocsinh','HocSinhController@list');
+
+	Route::get('lop','LopController@list');
+
+	Route::get('giaovien','GiaoVienController@list');
+
+	Route::get('monhoc','MonHocController@list');
+
+	Route::get('bangdiem','BangDiemController@list');
+
+	Route::get('diemchitiet','BangDiemController@diemchitiet');
+});
+
+
