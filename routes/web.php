@@ -12,13 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 })->name('/');
 
 Route::group(['prefix'=>'admin'], function(){
 	Route::get('/','AdminController@admin')->name('admin');
 
 	Route::group(['prefix'=>'user'], function(){
+		Route::get('list', [
+			'as' => 'user.list',
+			'uses' => 'AdminController@list'
+		]);
+
 		Route::get('/add', [
 			'as' => 'user.add',
 			'uses' => 'AdminController@add'

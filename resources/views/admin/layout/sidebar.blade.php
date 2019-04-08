@@ -34,7 +34,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{route('admin')}}"><i class="fa fa-circle-o"></i> Danh sách 1</a></li>
+            <li class="active"><a href="{{route('user.list')}}"><i class="fa fa-circle-o"></i> Danh sách 1</a></li>
           </ul>
         </li>
         <li class="treeview">

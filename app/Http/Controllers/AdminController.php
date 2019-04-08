@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
-use App\Permission;
+use App\RoleUser;
 
 class AdminController extends Controller
 {
     public function admin()
     {
+        return view('admin.index');
+    }
+
+    public function list()
+    {
     	$user = User::all();
-    	return view('admin.index', ['user'=>$user]);
+    	return view('admin.user.list', ['user'=>$user]);
     }
 
     public function getEdit($id)
@@ -26,10 +31,10 @@ class AdminController extends Controller
     {
     	$user = User::find($id);
     	$role = Role::all();
-        $permission = Permission::all();
+        $role_user = RoleUser::all();
     	$this->validate($request, [
     		'Ten' => 'required|min:5|max:50',
-            'Email' => 'required|email',
+            'email' => 'required|email',
             'password' => 'required|string|min:4|confirmed',
     	],
     	[
@@ -43,13 +48,18 @@ class AdminController extends Controller
             'password.confirmed' => 'Xác nhận mật khẩu không đúng',
     	]);
 
+        //dd($user);
+        //dd($role);
+        //dd($role_user);
+        //dd($request->all());
+
     	$user->name = $request->Ten;
         $user->email = $request->email;
-    	$role->id = $permission->role_id = $request->quyen;
+    	$role_user->role_id = $request->quyen;
         $user->password = bcrypt($request->password);
 
     	$user->save();
-        $permission->save();
+        $role_user->save();
     	return redirect()->back()->with('thongbao', 'Sửa thông tin user thành công');
     }
 
@@ -58,5 +68,10 @@ class AdminController extends Controller
     	$user = User::find($id);
     	$user -> delete();
     	return redirect()->back()->with('thongbao', 'Xóa user thành công');
+    }
+
+    public function add()
+    {
+        return view('welcome');
     }
 }

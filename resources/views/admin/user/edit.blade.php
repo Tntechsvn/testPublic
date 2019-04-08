@@ -15,7 +15,7 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
-                @if(count($errors)>0))
+                @if(count($errors)>0)
                     <div class="alert alert-danger">
                         @foreach($errors->all() as $err)
                             {{ $err }}<br />
@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <label>Xác minh mật khẩu</label>
-                        <input class="form-control" name="password_confirm" type="password" placeholder="Xác minh mật khẩu..." value="" />
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                     </div>
 
                     <div class="form-group">
@@ -62,7 +62,7 @@
 
                     <button type="submit" class="btn btn-default">Thực hiện</button>
                     <button type="reset" class="btn btn-default">Reset</button>
-                    <a href="{{route('admin')}}">Trở về trang trước</a>
+                    <a href="{{route('user.list')}}">Trở về trang trước</a>
                 <form>
             </div>
         </div>

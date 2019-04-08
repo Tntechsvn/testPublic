@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    Danh sách môn học
+    Quản lý người dùng
 @stop
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -14,7 +14,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Bảng môn học</li>
+        <li class="active">Bảng User</li>
       </ol>
     </section>
 
@@ -24,7 +24,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh sách môn học</h3>
+              <h3 class="box-title">Danh sách user</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -32,25 +32,36 @@
                 <thead>
 	                <tr>
 	                  <th>ID</th>
-	                  <th>Tên bộ môn</th>
-	                  <th>Sửa info</th>
-	                  <th>Xóa bộ môn</th>
+	                  <th>Tên người dùng</th>
+	                  <th>Email</th>
+	                  <th>Cấp quyền</th>
+	                  <th>Ngày tạo</th>
+	                  <th>Sửa user</th>
+	                  <th>Xóa user</th>
 	                </tr>
                 </thead>
                 <tbody>
-	                <tr>
-	                  <td>1</td>
-	                  <td>Internet Explorer 4.0</td>
-	                  <td>X</td>
-	                  <td>Vinh</td>
-	                </tr>
+                  @foreach($user as $u)
+                    <tr>
+                      <td>{{$u->id}}</td>
+                      <td>{{$u->name}}</td>
+                      <td>{{$u->email}}</td>
+                      <td>{{$u->role->first()->display_name}}</td>
+                      <td>{{$u->create_at}}</td>
+                      <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('user.edit',$u->id)}}"> Edit</a></td>
+                      <td class="center"><i class="fa fa-trash-o fa-fw"></i>Delete<!-- <a href="admin/user/delete/{{$u->id}}"> Delete</a> --></td>
+                    </tr>
+                  @endforeach	                
                 </tbody>
                 <tfoot>
 	                <tr>
 	                  <th>ID</th>
-	                  <th>Tên bộ môn</th>
-	                  <th>Sửa info</th>
-	                  <th>Xóa bộ môn</th>
+	                  <th>Tên người dùng</th>
+	                  <th>Email</th>
+	                  <th>Cấp quyền</th>
+	                  <th>Ngày tạo</th>
+	                  <th>Sửa user</th>
+	                  <th>Xóa user</th>
 	                </tr>
                 </tfoot>
               </table>

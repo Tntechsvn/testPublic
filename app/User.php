@@ -44,8 +44,8 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role', 'role_user', 'user_id','role_id');
     }
 
-    public function Permission()
+    public function RoleUser()
     {
-        return $this->hasOne('App\Permission', 'role_user', 'id', 'user_id');
+        return $this->hasOne('App\RoleUser', 'role_user', 'id', 'user_id');
     }
 }

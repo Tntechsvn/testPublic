@@ -33,6 +33,7 @@
 	                <tr>
 	                  <th>ID</th>
 	                  <th>Tên lớp học</th>
+                    <th>Tên khóa học</th>
 	                  <th>Giáo viên chủ nhiệm</th>
 	                  <th>Ngày lập</th>
 	                  <th>Sửa info</th>
@@ -41,8 +42,9 @@
                 </thead>
                 <tbody>
 	                <tr>
-	                  <td>Trident</td>
+	                  <td>1</td>
 	                  <td>Internet Explorer 4.0</td>
+                    <td>2016-2019</td>
 	                  <td>Win 95+</td>
 	                  <td> 4</td>
 	                  <td>X</td>
@@ -53,6 +55,7 @@
 	                <tr>
 	                  <th>ID</th>
 	                  <th>Tên lớp học</th>
+                    <th>Tên khóa học</th>
 	                  <th>Giáo viên chủ nhiệm</th>
 	                  <th>Ngày lập</th>
 	                  <th>Sửa info</th>
