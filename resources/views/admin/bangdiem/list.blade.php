@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    Danh sách giáo viên
+    Bảng điểm
 @stop
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -43,7 +43,7 @@
                 <tbody>
 	                <tr>
 	                  <td>1</td>
-	                  <td>Internet Explorer 4.0</td>
+	                  <td><a href="{{route('admin.diemchitiet')}}"> Internet Explorer 4.0</a></td>
 	                  <td>6A3</td>
 	                  <td>Win 95+</td>
 	                  <td> 4</td>

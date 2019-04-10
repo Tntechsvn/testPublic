@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    Danh sách giáo viên
+    Bảng điểm chi tiết
 @stop
 @section('content')
 <!-- Content Wrapper. Contains page content -->

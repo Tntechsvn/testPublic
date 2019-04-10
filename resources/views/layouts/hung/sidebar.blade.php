@@ -46,8 +46,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('giaovien')}}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
-            <li><a href="{{route('giaovien')}}"><i class="fa fa-circle-o"></i> Thêm giáo viên</a></li>
+            <li><a href="{{route('admin.giaovien')}}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
+            <li><a href="{{route('admin.giaovien')}}"><i class="fa fa-circle-o"></i> Thêm giáo viên</a></li>
           </ul>
         </li>
         <!-- <li>
@@ -67,8 +67,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Tất cả danh sách</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Thêm điểm</a></li>
+            <li><a href="{{route('admin.bangdiem')}}"><i class="fa fa-circle-o"></i> Tất cả danh sách</a></li>
+            <li><a href="{{route('admin.bangdiem')}}"><i class="fa fa-circle-o"></i> Thêm điểm</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -80,9 +80,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Tất cả danh sách</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Danh sách theo lớp</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Thêm học sinh</a></li>
+            <li><a href="{{route('admin.hocsinh')}}"><i class="fa fa-circle-o"></i> Tất cả danh sách</a></li>
+            <li><a href="{{route('admin.hocsinh')}}"><i class="fa fa-circle-o"></i> Danh sách theo lớp</a></li>
+            <li><a href="{{route('admin.hocsinh')}}"><i class="fa fa-circle-o"></i> Thêm học sinh</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -93,8 +93,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Danh sách lớp học</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Thêm lớp học</a></li>
+            <li><a href="{{route('admin.lophoc')}}"><i class="fa fa-circle-o"></i> Danh sách lớp học</a></li>
+            <li><a href="{{route('admin.lophoc')}}"><i class="fa fa-circle-o"></i> Thêm lớp học</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -105,8 +105,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Danh sách môn học</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Thêm môn học</a></li>
+            <li><a href="{{route('admin.monhoc')}}"><i class="fa fa-circle-o"></i> Danh sách môn học</a></li>
+            <li><a href="{{route('admin.monhoc')}}"><i class="fa fa-circle-o"></i> Thêm môn học</a></li>
           </ul>
         </li>
       </ul>
