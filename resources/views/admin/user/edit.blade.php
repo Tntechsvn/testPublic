@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                         <label>Xác minh mật khẩu</label>
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                     </div>
 
                     <div class="form-group">

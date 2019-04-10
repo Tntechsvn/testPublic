@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('/');
 
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function(){
 	Route::get('/','AdminController@admin')->name('admin');
 
 	Route::group(['prefix'=>'user'], function(){
@@ -37,7 +37,10 @@ Route::group(['prefix'=>'admin'], function(){
 		]);
 		Route::post('/edit/{id}', 'AdminController@postEdit');
 
-		Route::get('/delete/{id}', 'AdminController@getDelete');
+		Route::get('/delete/{id}', [
+			'as' => 'user.delete',
+			'uses' => 'AdminController@getDelete'
+		]);
 	});
 
 	Route::get('hocsinh', [
@@ -50,10 +53,30 @@ Route::group(['prefix'=>'admin'], function(){
 		'uses' => 'LopController@list'
 	]);
 
-	Route::get('giaovien', [
-		'as' => 'admin.giaovien',
-		'uses' => 'GiaoVienController@list'
-	]);
+	Route::group(['prefix'=>'giaovien'], function(){
+		Route::get('list', [
+			'as' => 'giaovien.list',
+			'uses' => 'GiaoVienController@list'
+		]);
+
+		Route::get('/add', [
+			'as' => 'giaovien.add',
+			'uses' => 'GiaoVienController@getAdd'
+		]);
+
+		Route::post('/add', 'GiaoVienController@postAdd');
+
+	    Route::get('/edit/{id}', [
+			'as' => 'giaovien.edit',
+			'uses' => 'GiaoVienController@getEdit'
+		]);
+		Route::post('/edit/{id}', 'GiaoVienController@postEdit');
+
+		Route::get('/delete/{id}', [
+			'as' => 'giaovien.delete',
+			'uses' => 'GiaoVienController@getDelete'
+		]);
+	});
 
 	Route::get('monhoc', [
 		'as' => 'admin.monhoc',

@@ -20,6 +20,38 @@ class AdminController extends Controller
     	return view('admin.user.list', ['user'=>$user]);
     }
 
+    public function add()
+    {
+        $role = Role::all();
+        return view('admin.user.add', ['role' => $role]);
+    }
+
+    public function postAdd(Request $request)
+    {
+        $this->validate($request, [
+            'Ten' => 'required|min:5|max:50',
+            'email' => 'required|email',
+            'password' => 'confirmed',
+        ],
+        [
+            'Ten.required' => 'Nhập tên user đê',
+            'Ten.min' => 'Tên quá ngắn, nghĩ tên nào dài ra đê',
+            'Ten.max' => 'Viết dài quá, xóa bớt đê',
+            'email.required' => 'Email là trường bắt buộc',
+            'email.email' => 'Email không đúng định dạng',
+            'password.confirmed' => 'Xác nhận mật khẩu không đúng',
+        ]);
+
+        $user = new User;
+        $user->name = $request->Ten;
+        $user->email = $request->email;
+        $user->attachRole($request->quyen);
+        $user->password = bcrypt($request->password);
+
+        $user->save();
+        return redirect()->back()->with('thongbao', 'Sửa thông tin user thành công');
+    }
+
     public function getEdit($id)
     {
     	$user = User::find($id);
@@ -30,12 +62,10 @@ class AdminController extends Controller
     public function postEdit(Request $request, $id)
     {
     	$user = User::find($id);
-    	$role = Role::all();
-        $role_user = RoleUser::all();
     	$this->validate($request, [
     		'Ten' => 'required|min:5|max:50',
             'email' => 'required|email',
-            'password' => 'required|string|min:4|confirmed',
+            'password' => 'confirmed',
     	],
     	[
     		'Ten.required' => 'Nhập tên user đê',
@@ -43,23 +73,20 @@ class AdminController extends Controller
     		'Ten.max' => 'Viết dài quá, xóa bớt đê',
             'email.required' => 'Email là trường bắt buộc',
             'email.email' => 'Email không đúng định dạng',
-            'password.required' => 'Mật khẩu là trường bắt buộc',
-            'password.min' => 'Mật khẩu phải chứa ít nhất 4 ký tự',
             'password.confirmed' => 'Xác nhận mật khẩu không đúng',
     	]);
 
         //dd($user);
         //dd($role);
-        //dd($role_user);
+        //dd($request->quyen);
         //dd($request->all());
 
     	$user->name = $request->Ten;
         $user->email = $request->email;
-    	$role_user->role_id = $request->quyen;
+        $user->attachRole($request->quyen);
         $user->password = bcrypt($request->password);
 
     	$user->save();
-        $role_user->save();
     	return redirect()->back()->with('thongbao', 'Sửa thông tin user thành công');
     }
 
@@ -68,10 +95,5 @@ class AdminController extends Controller
     	$user = User::find($id);
     	$user -> delete();
     	return redirect()->back()->with('thongbao', 'Xóa user thành công');
-    }
-
-    public function add()
-    {
-        return view('welcome');
     }
 }

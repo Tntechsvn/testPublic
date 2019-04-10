@@ -34,37 +34,28 @@
 	                  <th>ID</th>
 	                  <th>Tên giáo viên</th>
 	                  <th>Email</th>
-	                  <th>Tên bộ môn</th>
-	                  <th>Chủ nhiệm</th>
-	                  <th>Lớp</th>
-	                  <th>Ngày bắt đầu dạy</th>
 	                  <th>Sửa info</th>
 	                  <th>Xóa GV</th>
 	                </tr>
                 </thead>
                 <tbody>
-	                <tr>
-	                  <td>1</td>
-	                  <td>Internet Explorer 4.0</td>
-	                  <td>admin@abc.com</td>
-	                  <td>Win 95+</td>
-	                  <td>Có</td>
-	                  <td>6A3</td>
-	                  <td> 4</td>
-	                  <td>X</td>
-	                  <td>Vinh</td>
+                  @foreach($giao_vien as $gv)
+	                <tr>                    
+                      <td>{{$gv->id}} </td>
+                      <td>{{$gv->name}}</td>
+                      <td>{{$gv->email}}</td>
+                      <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('giaovien.edit',$gv->id)}}"> Edit</a></td>
+                      <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('giaovien.delete',$gv->id)}}"> Delete</a></td>
 	                </tr>
+                  @endforeach    
                 </tbody>
                 <tfoot>
 	                <tr>
 	                  <th>ID</th>
-	                  <th>Tên giáo viên</th>
-	                  <th>Email</th>
-	                  <th>Tên bộ môn</th>
-	                  <th>Chủ nhiệm</th>
-	                  <th>Ngày bắt đầu dạy</th>
-	                  <th>Sửa info</th>
-	                  <th>Xóa GV</th>
+                    <th>Tên giáo viên</th>
+                    <th>Email</th>
+                    <th>Sửa info</th>
+                    <th>Xóa GV</th>
 	                </tr>
                 </tfoot>
               </table>

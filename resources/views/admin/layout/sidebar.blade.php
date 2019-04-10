@@ -35,6 +35,7 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="{{route('user.list')}}"><i class="fa fa-circle-o"></i> Danh sách 1</a></li>
+            <li><a href="{{route('user.add')}}"><i class="fa fa-circle-o"></i>Thêm người dùng</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -46,8 +47,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('admin.giaovien')}}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
-            <li><a href="{{route('admin.giaovien')}}"><i class="fa fa-circle-o"></i> Thêm giáo viên</a></li>
+            <li><a href="{{route('giaovien.list')}}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
+            <li><a href="{{route('giaovien.add')}}"><i class="fa fa-circle-o"></i> Thêm giáo viên</a></li>
           </ul>
         </li>
         <!-- <li>
