@@ -47,7 +47,7 @@
                       <td>{{$u->name}}</td>
                       <td>{{$u->email}}</td>
                       <td>{{$u->role->first()->display_name}}</td>
-                      <td>{{$u->create_at}}</td>
+                      <td>{{$u->created_at}}</td>
                       <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('user.edit',$u->id)}}"> Edit</a></td>
                       <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('user.delete',$u->id)}}"> Delete</a></td>
                     </tr>

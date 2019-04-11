@@ -27,7 +27,7 @@
               <h3 class="box-title">Danh sách lớp học</h3>
             </div>
             <div class="box-header">
-              <a href="{{ route('create_lop') }}" class="create_lop">Create Lớp</a>
+              <a href="{{ route('lop.add') }}" class="create_lop">Thêm Lớp học</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -46,7 +46,6 @@
                 </thead>
                 <tbody>
 	                <tr>
-<<<<<<< HEAD
 	                  <td>1</td>
 	                  <td>Internet Explorer 4.0</td>
                     <td>2016-2019</td>
@@ -67,21 +66,6 @@
 	                  <th>Xóa</th>
 	                </tr>
                 </tfoot>
-=======
-	                  <td></td>
-	                  <td></td>
-	                  <td></td>
-	                  <td><a href="">Show</a></td>
-	                  <td><a href="">Sửa</a></td>
-	                  <td>
-                      <form action="" method="post">
-                          <input type="submit" name="delete" value="Xóa">
-                      </form>
-                    </td>
-	                </tr>
-                </tbody>
-                
->>>>>>> 74ac7f60e14f96c61c434806f3fdd1934324f7ed
               </table>
             </div>
             <!-- /.box-body -->

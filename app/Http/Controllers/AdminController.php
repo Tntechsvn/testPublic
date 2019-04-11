@@ -49,7 +49,7 @@ class AdminController extends Controller
         $user->password = bcrypt($request->password);
 
         $user->save();
-        return redirect()->back()->with('thongbao', 'Sửa thông tin user thành công');
+        return redirect()->back()->with('thongbao', 'Thêm thành công');
     }
 
     public function getEdit($id)

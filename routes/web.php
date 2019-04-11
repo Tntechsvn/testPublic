@@ -94,9 +94,14 @@ Route::group(['prefix'=>'admin', 'middleware'=>'checkuser'], function(){
 	});
 
 	Route::group(['prefix'=>'lop'], function(){
+		Route::get('list',[
+			'as' => 'lop.list',
+			'uses' => 'LopController@list'
+		]);
+
 		Route::get('add',[
 			'as' => 'lop.add',
-			'uses' => 'LopController@getAdd'
+			'uses' => 'LopController@createlop'
 		]);
 	});
 

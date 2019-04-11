@@ -32,7 +32,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label>Tên giáo viên</label>
+                        <label>Tên học sinh</label>
                         <input class="form-control" name="Ten" type="text" placeholder="Điền tên vào..." value="{{$hoc_sinh->name}}" />
                     </div>
 

@@ -43,17 +43,19 @@
 	                </tr>
                 </thead>
                 <tbody>
-	                <tr>
-	                  <td>Trident</td>
-	                  <td>Internet Explorer 4.0</td>
-	                  <td>Win 95+</td>
-                    <td>Ngô Bá Khá</td>
-	                  <td> 4</td>
-	                  <td>Như beep</td>
-	                  <td>X</td>
-	                  <td>Vinh</td>
-	                  <td>Đẹp trai</td>
-	                </tr>
+                  @foreach($hoc_sinh as $hs)
+    	                <tr>
+    	                  <td>{{$hs->id}}</td>
+    	                  <td>{{$hs->name}}</td>
+    	                  <td>6A3</td>
+                        <td>Ngô Bá Khá</td>
+    	                  <td> 4</td>
+    	                  <td>Như beep</td>
+    	                  <td>{{$hs->created_at}}</td>
+    	                  <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('hocsinh.edit',$hs->id)}}"> Edit</a></td>
+                        <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('hocsinh.delete',$hs->id)}}"> Delete</a></td>
+    	                </tr>
+                  @endforeach
                 </tbody>
                 <tfoot>
 	                <tr>
