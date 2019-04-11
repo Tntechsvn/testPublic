@@ -20,9 +20,6 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('admin_asset/dist/css/skins/_all-skins.min.css')}}">
 
-
-  <link rel="stylesheet" href="{{asset('css/style.css')}}">
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -38,7 +35,7 @@
 
   @include('admin.layout.header')
   @include('admin.layout.sidebar')
-
+  
   @yield('content')
   @include('admin.layout.footer')
 
@@ -84,7 +81,6 @@
 </script>
 
 	@yield('script')
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="{{ url('js/themkhoahoc.js') }}" type="text/javascript"></script>
+
 </body>
 </html>

@@ -24,64 +24,36 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh sách lớp học</h3>
+              <h3 class="box-title">Danh sách khóa học</h3>
             </div>
             <div class="box-header">
-              <a href="{{ route('create_lop') }}" class="create_lop">Create Lớp</a>
+              <a href="{{ route('create_khoahoc') }}" class="create_lop">Thêm khóa học</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
 	                <tr>
-	                  <th>ID</th>
-	                  <th>Tên lớp học</th>
-                    <th>Tên khóa học</th>
-	                  <th>Giáo viên chủ nhiệm</th>
-	                  <th>Khóa học</th>
-                    <th>Chi tiết</th>
+	                  <th>Tên khóa học</th>
 	                  <th>Sửa</th>
 	                  <th>Xóa</th>
 	                </tr>
                 </thead>
                 <tbody>
+                  @foreach($khoahoc as $kh)
 	                <tr>
-<<<<<<< HEAD
-	                  <td>1</td>
-	                  <td>Internet Explorer 4.0</td>
-                    <td>2016-2019</td>
-	                  <td>Win 95+</td>
-	                  <td> 4</td>
-	                  <td>X</td>
-	                  <td>Vinh</td>
-	                </tr>
-                </tbody>
-                <tfoot>
-	                <tr>
-	                  <th>ID</th>
-	                  <th>Tên lớp học</th>
-                    <th>Tên khóa học</th>
-	                  <th>Giáo viên chủ nhiệm</th>
-	                  <th>Ngày lập</th>
-	                  <th>Sửa info</th>
-	                  <th>Xóa</th>
-	                </tr>
-                </tfoot>
-=======
-	                  <td></td>
-	                  <td></td>
-	                  <td></td>
-	                  <td><a href="">Show</a></td>
-	                  <td><a href="">Sửa</a></td>
+                    
+	                  <td>{{ $kh->tenkhoahoc }}</td>
+	                  <td><a href="{{ route('editshowkh',$kh->id)}}">Sửa</a></td>
 	                  <td>
-                      <form action="" method="post">
-                          <input type="submit" name="delete" value="Xóa">
+                      <form action="{{route('deletekh',$kh->id)}}" method="delete">
+                          <input type="submit" name="deletekh" value="Xóa">
                       </form>
                     </td>
+                    
 	                </tr>
+                  @endforeach
                 </tbody>
-                
->>>>>>> 74ac7f60e14f96c61c434806f3fdd1934324f7ed
               </table>
             </div>
             <!-- /.box-body -->

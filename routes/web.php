@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('/');
 
-Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'checkuser'], function(){
 	Route::get('/','AdminController@admin')->name('admin');
 
 	Route::group(['prefix'=>'user'], function(){
@@ -68,11 +68,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function(){
 		]);
 	});
 
-	Route::get('lophoc', [
-		'as' => 'admin.lophoc',
-		'uses' => 'LopController@list'
-	]);
-
 	Route::group(['prefix'=>'giaovien'], function(){
 		Route::get('list', [
 			'as' => 'giaovien.list',
@@ -98,22 +93,82 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function(){
 		]);
 	});
 
-	Route::get('monhoc', [
-		'as' => 'admin.monhoc',
-		'uses' => 'MonHocController@list'
+	Route::group(['prefix'=>'lop'], function(){
+		Route::get('add',[
+			'as' => 'lop.add',
+			'uses' => 'LopController@getAdd'
+		]);
+	});
+
+	Route::group(['prefix'=>'khoahoc'], function(){
+		Route::get('list',[
+			'as' => 'khoahoc.list',
+			'uses' => 'KhoahocController@index'
+		]);
+
+		Route::get('add',[
+			'as' => 'khoahoc.add',
+			'uses' => 'KhoahocController@showcreate'
+		]);
+
+		Route::get('khoahoc/suakhoahoc/{id}',[
+			'as' => 'editshowkh',
+			'uses' => 'KhoahocController@showedit'
+		]);
+
+		Route::get('khoahoc/xoa/{id}',[
+			'as' => 'deletekh',
+			'uses' => 'KhoahocController@destroy'
+		]);
+
+		Route::post('khoahoc/themkhoahoc',[
+			'as' => 'createkhoahoc',
+			'uses' => 'KhoahocController@create'
+		]);
+	});
+
+	Route::get('bangdiem','BangDiemController@list');
+
+	Route::get('diemchitiet','BangDiemController@diemchitiet');
+
+	Route::get('monhoc',[
+		'as' => 'monhoc',
+		'uses'=> 'MonHocController@list'
 	]);
 
-	Route::get('bangdiem', [
-		'as' => 'admin.bangdiem',
-		'uses' => 'BangDiemController@list'
+	Route::get('monhoc/themmonhoc',[
+		'as' => 'create.monhoc',
+		'uses'=> 'MonHocController@showcreate'
 	]);
 
-	Route::get('diemchitiet', [
-		'as' => 'admin.diemchitiet',
-		'uses' => 'BangDiemController@diemchitiet'
+	Route::get('monhoc/suamonhoc/{id}',[
+		'as' => 'showedit.monhoc',
+		'uses'=> 'MonHocController@showedit'
+	]);
+
+	Route::post('monhoc/themmonhoc',[
+		'as' => 'create_monhoc',
+		'uses'=> 'MonHocController@create'
+	]);
+
+	Route::get('monhoc/xoa/{id}',[
+		'as' => 'deletemh',
+		'uses' => 'MonHocController@destroy'
 	]);
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::group(['prefix'=>'giaovien'], function(){
+// 	Route::get('/',[
+// 		'as'=> 'giaovien',
+// 		'uses' => 'GiaoVienController@index'
+// 	]);
+
+// 	Route::get('list_hoc_sinh', [
+// 		'as' => 'qlhocsinh',
+// 		'uses' => 'GiaoVienController@qlhocsinh'
+// 	]);
+// });

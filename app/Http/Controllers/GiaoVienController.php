@@ -9,6 +9,15 @@ use App\User;
 
 class GiaoVienController extends Controller
 {
+	// public function index(){
+	// 	return view('giaovien.index');
+	// }
+
+ //    public function qlhocsinh()
+ //    {      
+ //        return view('giaovien.list_hoc_sinh');
+ //    }
+
     public function list()
     {
     	$giao_vien = db::table('users')->join('role_user', 'users.id', '=', 'role_user.user_id')->where('role_id', 2)->get();
