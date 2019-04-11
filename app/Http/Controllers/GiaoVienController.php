@@ -22,7 +22,7 @@ class GiaoVienController extends Controller
 
     public function postAdd()
     {
-        $user = User::find($id);
+        $giao_vien = User::find($id);
         $this->validate($request, [
             'Ten' => 'required|min:5|max:50',
             'email' => 'required|email',
@@ -37,12 +37,12 @@ class GiaoVienController extends Controller
             'password.confirmed' => 'Xác nhận mật khẩu không đúng',
         ]);
 
-        $user->name = $request->Ten;
-        $user->email = $request->email;
-        $user->attachRole($request->quyen);
-        $user->password = bcrypt($request->password);
+        $giao_vien->name = $request->Ten;
+        $giao_vien->email = $request->email;
+        $giao_vien->attachRole($request->quyen);
+        $giao_vien->password = bcrypt($request->password);
 
-        $user->save();
+        $giao_vien->save();
         return redirect()->back()->with('thongbao', 'Sửa thông tin user thành công');
     }
 

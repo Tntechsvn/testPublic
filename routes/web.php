@@ -43,10 +43,30 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function(){
 		]);
 	});
 
-	Route::get('hocsinh', [
-		'as' => 'admin.hocsinh',
-		'uses' => 'HocSinhController@list'
-	]);
+	Route::group(['prefix'=>'hocsinh'], function(){
+		Route::get('list', [
+			'as' => 'hocsinh.list',
+			'uses' => 'HocSinhController@list'
+		]);
+
+		Route::get('/add', [
+			'as' => 'hocsinh.add',
+			'uses' => 'HocSinhController@getAdd'
+		]);
+
+		Route::post('/add', 'HocSinhController@postAdd');
+
+	    Route::get('/edit/{id}', [
+			'as' => 'hocsinh.edit',
+			'uses' => 'HocSinhController@getEdit'
+		]);
+		Route::post('/edit/{id}', 'HocSinhController@postEdit');
+
+		Route::get('/delete/{id}', [
+			'as' => 'hocsinh.delete',
+			'uses' => 'HocSinhController@getDelete'
+		]);
+	});
 
 	Route::get('lophoc', [
 		'as' => 'admin.lophoc',

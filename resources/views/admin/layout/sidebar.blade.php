@@ -81,9 +81,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('admin.hocsinh')}}"><i class="fa fa-circle-o"></i> Tất cả danh sách</a></li>
-            <li><a href="{{route('admin.hocsinh')}}"><i class="fa fa-circle-o"></i> Danh sách theo lớp</a></li>
-            <li><a href="{{route('admin.hocsinh')}}"><i class="fa fa-circle-o"></i> Thêm học sinh</a></li>
+            <li><a href="{{route('hocsinh.list')}}"><i class="fa fa-circle-o"></i> Tất cả danh sách</a></li>
+            <li><a href="{{route('hocsinh.list')}}"><i class="fa fa-circle-o"></i> Danh sách theo lớp</a></li>
+            <li><a href="{{route('hocsinh.add')}}"><i class="fa fa-circle-o"></i> Thêm học sinh</a></li>
           </ul>
         </li>
         <li class="treeview">
