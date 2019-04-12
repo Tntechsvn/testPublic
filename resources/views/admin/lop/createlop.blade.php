@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-    Create Lớp
+    Tạo Lớp học mới
 @stop
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -27,17 +27,55 @@
               <h3 class="box-title">Tạo lớp học mới</h3>
             </div>
             <div class="box-header">
-              <a href="{{ route('lophoc') }}" class="create_lop">Back</a>
+              <a href="{{ route('lop.list') }}" class="create_lop">Back</a>
             </div>
             <!-- /.box-header -->
+
+            @if(count($errors)>0)
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $err)
+                        {{ $err }}<br />
+                    @endforeach
+                </div>
+            @endif
+
+            @if(session('thongbao'))
+                <div class="alert alert-success">
+                    {{ session('thongbao') }}
+                </div>
+            @endif
+                
             <div class="box-body">
-              <form action="{{ route('createlop') }}" method="post" accept-charset="utf-8">
+              <form action="" method="post" accept-charset="utf-8">
+                  @csrf
                   <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Name:</strong>
-                        <input type="" name="">
+                        <label>Tên lớp học</label>
+                        <input class="form-control" name="tenlop" type="text" placeholder="Tên lớp học" />
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label>ID khóa học</label>
+                        <select name="id_khoahoc">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>          
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giáo viên chủ nhiệm</label>
+                        <select name="id_gvcn">
+                          @foreach($giao_vien as $gv)
+                            <option value="{{$gv->id}}">{{$gv->id}} - {{$gv->name}}</option>
+                          @endforeach
+                        </select>     
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Thực hiện</button>
+                    <button type="reset" class="btn btn-default">Reset</button>
+                  </div>
               </form>
             </div>
             <!-- /.box-body -->

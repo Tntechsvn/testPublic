@@ -103,6 +103,19 @@ Route::group(['prefix'=>'admin', 'middleware'=>'checkuser'], function(){
 			'as' => 'lop.add',
 			'uses' => 'LopController@createlop'
 		]);
+
+		Route::post('/add', 'LopController@postcreatelop');
+
+		Route::get('/edit/{id}', [
+			'as' => 'lop.edit',
+			'uses' => 'LopController@getEdit'
+		]);
+		Route::post('/edit/{id}', 'LopController@postEdit');
+
+		Route::get('/delete/{id}', [
+			'as' => 'lop.delete',
+			'uses' => 'LopController@getDelete'
+		]);
 	});
 
 	Route::group(['prefix'=>'khoahoc'], function(){
@@ -132,9 +145,34 @@ Route::group(['prefix'=>'admin', 'middleware'=>'checkuser'], function(){
 		]);
 	});
 
-	Route::get('bangdiem','BangDiemController@list');
+	Route::group(['prefix'=>'quanlyrole'], function(){
+		Route::get('list',[
+			'as' => 'quanlyrole.list',
+			'uses' => 'RoleController@list'
+		]);
 
-	Route::get('diemchitiet','BangDiemController@diemchitiet');
+		// Route::get('add',[
+		// 	'as' => 'quanlyrole.add',
+		// 	'uses' => 'RoleController@getAdd'
+		// ]);
+
+		// Route::post('/add', 'RoleController@postAdd');
+
+		Route::get('/edit/{id}', [
+			'as' => 'quanlyrole.edit',
+			'uses' => 'RoleController@getEdit'
+		]);
+		Route::post('/edit/{id}', 'RoleController@postEdit');
+
+		Route::get('/delete/{id}', [
+			'as' => 'quanlyrole.delete',
+			'uses' => 'RoleController@getDelete'
+		]);
+	});
+
+	// Route::get('bangdiem','BangDiemController@list');
+
+	// Route::get('diemchitiet','BangDiemController@diemchitiet');
 
 	Route::get('monhoc',[
 		'as' => 'monhoc',

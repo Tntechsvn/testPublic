@@ -94,8 +94,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Danh sách lớp học</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Thêm lớp học</a></li>
+            <li><a href="{{route('lop.list')}}"><i class="fa fa-circle-o"></i> Danh sách lớp học</a></li>
+            <li><a href="{{route('lop.add')}}"><i class="fa fa-circle-o"></i> Thêm lớp học</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -108,6 +108,18 @@
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o"></i> Danh sách môn học</a></li>
             <li><a href=""><i class="fa fa-circle-o"></i> Thêm môn học</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Quản lý quyền</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('quanlyrole.list')}}"><i class="fa fa-circle-o"></i> Danh sách quyền</a></li>
+            <li><a href="{{route('quanlyrole.list')}}"><i class="fa fa-circle-o"></i> Thêm quyền</a></li>
           </ul>
         </li>
       </ul>
