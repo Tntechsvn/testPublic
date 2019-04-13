@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\RoleUser', 'user_id', 'role_id');
     }
+
+    public function lophoc(){
+        return $this->belongsToMany('App\Lophoc', 'lop', 'id','id_gvcn');
+    }
 }

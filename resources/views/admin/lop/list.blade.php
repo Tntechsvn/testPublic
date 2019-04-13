@@ -49,8 +49,8 @@
   	                  <td>{{$l->id}}</td>
   	                  <td>{{$l->tenlop}}</td>
                       <td>{{$l->id_khoahoc}}</td>
-  	                  <td>{{$l->id_gvcn}}</td>
-  	                  <td> {{$l->created_at}}</td>
+  	                  <td>{{$l->user->first()->name}}</td>
+  	                  <td>{{$l->created_at}}</td>
   	                  <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('lop.edit',$l->id)}}"> Edit</a></td>
                       <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('lop.delete',$l->id)}}"> Delete</a></td>
   	                </tr>

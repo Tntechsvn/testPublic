@@ -43,7 +43,11 @@
 
                     <div class="form-group">
                         <label>Giáo viên chủ nhiệm</label>
-                        <input class="form-control" name="id_gvcn" type="number" value="{{$lop->id_gvcn}}" />
+                        <select name="id_gvcn">
+                          @foreach($giao_vien as $gv)
+                            <option value="{{$gv->id}}">{{$gv->id}} - {{$gv->name}}</option>
+                          @endforeach
+                        </select>     
                     </div>
 
                     <button type="submit" class="btn btn-default">Thực hiện</button>
