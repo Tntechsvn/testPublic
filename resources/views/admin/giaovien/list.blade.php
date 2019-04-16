@@ -34,6 +34,7 @@
 	                  <th>ID</th>
 	                  <th>Tên giáo viên</th>
 	                  <th>Email</th>
+                    <th>Cấp quyền</th>
 	                  <th>Sửa info</th>
 	                  <th>Xóa GV</th>
 	                </tr>
@@ -44,6 +45,13 @@
                       <td>{{$gv->id}} </td>
                       <td>{{$gv->name}}</td>
                       <td>{{$gv->email}}</td>
+                      <td>
+                          @if($gv->role_id == 2)
+                              {{"Giáo viên"}}
+                          @elseif($gv->role_id == 4)
+                              {{"GV chủ nhiệm"}}
+                          @endif
+                      </td>
                       <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('giaovien.edit',$gv->id)}}"> Edit</a></td>
                       <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('giaovien.delete',$gv->id)}}"> Delete</a></td>
 	                </tr>
@@ -54,6 +62,7 @@
 	                  <th>ID</th>
                     <th>Tên giáo viên</th>
                     <th>Email</th>
+                    <th>Cấp quyền</th>
                     <th>Sửa info</th>
                     <th>Xóa GV</th>
 	                </tr>

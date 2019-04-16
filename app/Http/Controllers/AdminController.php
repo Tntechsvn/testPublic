@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
-use App\RoleUser;
 
 class AdminController extends Controller
 {
@@ -28,27 +27,32 @@ class AdminController extends Controller
 
     public function postAdd(Request $request)
     {
+        // $role_user = RoleUser::all();
         $this->validate($request, [
-            'Ten' => 'required|min:5|max:50',
-            'email' => 'required|email',
+            'Ten' => 'required|min:5|max:50|unique:users,name',
+            'email' => 'required|email|unique:users,email',
             'password' => 'confirmed',
         ],
         [
             'Ten.required' => 'Nhập tên user đê',
             'Ten.min' => 'Tên quá ngắn, nghĩ tên nào dài ra đê',
             'Ten.max' => 'Viết dài quá, xóa bớt đê',
+            'Ten.unique' => 'Tên đã tồn tại!',
             'email.required' => 'Email là trường bắt buộc',
             'email.email' => 'Email không đúng định dạng',
+            'email.unique' => 'Email đã tồn tại!',
             'password.confirmed' => 'Xác nhận mật khẩu không đúng',
         ]);
 
         $user = new User;
+
         $user->name = $request->Ten;
         $user->email = $request->email;
-        $user->attachRole($request->quyen);
         $user->password = bcrypt($request->password);
 
         $user->save();
+
+        $user->attachRole($request->quyen);
         return redirect()->back()->with('thongbao', 'Thêm thành công');
     }
 
@@ -76,17 +80,12 @@ class AdminController extends Controller
             'password.confirmed' => 'Xác nhận mật khẩu không đúng',
     	]);
 
-        //dd($user);
-        //dd($role);
-        //dd($request->quyen);
-        //dd($request->all());
-
     	$user->name = $request->Ten;
         $user->email = $request->email;
-        $user->attachRole($request->quyen);
         $user->password = bcrypt($request->password);
 
     	$user->save();
+        $user->attachRole($request->quyen);
     	return redirect()->back()->with('thongbao', 'Sửa thông tin user thành công');
     }
 

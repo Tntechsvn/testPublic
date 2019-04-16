@@ -54,8 +54,7 @@ class KhoahocController extends Controller
 
     public function showedit($id){
     	$edit = Khoahoc::findOrFail($id);
-    	return view('admin.khoahoc.edit',['khoahoc'=>$edit]);
-    	
+    	return view('admin.khoahoc.edit',['khoahoc'=>$edit]);    	
     }
 
 

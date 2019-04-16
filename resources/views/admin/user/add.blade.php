@@ -53,9 +53,9 @@
 
                     <div class="form-group">
                         <label>Cấp quyền</label>
-                        <select>
+                        <select name="quyen">
                             @foreach($role as $r)
-                                <option>{{$r->display_name}}</option>
+                                <option value="{{$r->id}}">{{$r->display_name}}</option>
                             @endforeach
                         </select>          
                     </div>

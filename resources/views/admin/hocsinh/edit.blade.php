@@ -48,7 +48,7 @@
 
                     <button type="submit" class="btn btn-default">Thực hiện</button>
                     <button type="reset" class="btn btn-default">Reset</button>
-                    <a href="{{route('giaovien.list')}}">Trở về trang trước</a>
+                    <a href="{{route('hocsinh.list')}}">Trở về trang trước</a>
                 <form>
             </div>
         </div>

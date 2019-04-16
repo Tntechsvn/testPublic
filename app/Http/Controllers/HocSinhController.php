@@ -21,9 +21,8 @@ class HocSinhController extends Controller
     	return view('admin.hocsinh.add');
     }
 
-    public function postAdd()
+    public function postAdd(Request $request)
     {
-        $user = User::find($id);
         $this->validate($request, [
             'Ten' => 'required|min:5|max:50',
             'email' => 'required|email',
@@ -38,13 +37,14 @@ class HocSinhController extends Controller
             'password.confirmed' => 'Xác nhận mật khẩu không đúng',
         ]);
 
-        $user->name = $request->Ten;
-        $user->email = $request->email;
-        $user->attachRole($request->quyen);
-        $user->password = bcrypt($request->password);
+        $hoc_sinh = new User;
 
-        $user->save();
-        return redirect()->back()->with('thongbao', 'Sửa thông tin user thành công');
+        $hoc_sinh->name = $request->Ten;
+        $hoc_sinh->email = $request->email;
+        $hoc_sinh->password = bcrypt($request->password);
+
+        $hoc_sinh->save();
+        return redirect()->back()->with('thongbao', 'Thêm học sinh thành công');
     }
 
     public function getEdit($id)
@@ -72,23 +72,11 @@ class HocSinhController extends Controller
             'password.confirmed' => 'Xác nhận mật khẩu không đúng',
     	]);
 
-    	//$input = $request->all();
     	$hoc_sinh->name = $request->Ten;
         $hoc_sinh->email = $request->email;
-        $hoc_sinh->attachRole(3);
         $hoc_sinh->password = bcrypt($request->password);
 
-        //$hoc_sinh->update($input);
-
-        //$hoc_sinh->role_user()->delete();
-
-        //DB::table('role_user')->where('user_id',$id)->delete();
-        
-        // foreach ($request->input('roles') as $key => $value) {
-        //     $hoc_sinh->attachRole($value);
-        // }
-
     	$hoc_sinh->save();
-    	return redirect()->back()->with('thongbao', 'Sửa thông tin giáo viên thành công');
+    	return redirect()->back()->with('thongbao', 'Sửa thông tin học sinh thành công');
     }
 }
